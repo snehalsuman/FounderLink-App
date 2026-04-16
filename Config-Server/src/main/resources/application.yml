@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: ${CONFIG_SERVER_GIT_URI:https://github.com/snehalsuman/FounderLink}
+          uri: ${CONFIG_SERVER_GIT_URI:https://github.com/snehalsuman/FounderLink-App}
           default-label: ${CONFIG_SERVER_GIT_BRANCH:main}
           search-paths: config
           clone-on-start: true
