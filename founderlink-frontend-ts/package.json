@@ -1,0 +1,72 @@
+{
+  "name": "founderlink-frontend-ts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@reduxjs/toolkit": "^2.11.2",
+    "@stomp/stompjs": "^7.3.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.13.6",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-hook-form": "^7.71.2",
+    "react-hot-toast": "^2.6.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.13.1",
+    "react-scripts": "5.0.1",
+    "sockjs-client": "^1.6.1",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.7.1"
+  },
+  "scripts": {
+    "start": "PORT=3002 node node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "node node_modules/react-scripts/bin/react-scripts.js build",
+    "test": "node node_modules/react-scripts/bin/react-scripts.js test",
+    "test:coverage": "node node_modules/react-scripts/bin/react-scripts.js test --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint": "node node_modules/eslint/bin/eslint.js src --ext .ts,.tsx --max-warnings 0",
+    "lint:fix": "node node_modules/eslint/bin/eslint.js src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react-router-dom$": "<rootDir>/node_modules/react-router-dom/dist/index.js",
+      "^react-router$": "<rootDir>/node_modules/react-router/dist/development/index.js",
+      "^react-router/dom$": "<rootDir>/node_modules/react-router/dist/development/dom-export.js"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/sockjs-client": "^1.5.4",
+    "autoprefixer": "^10.4.27",
+    "cypress": "^13.17.0",
+    "postcss": "^8.5.8",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^4.9.5"
+  }
+}

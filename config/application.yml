@@ -1,0 +1,5 @@
+ # ── Shared configuration applied to ALL microservices ────────────────────────
+# Spring Cloud Config serves this file alongside each service's own yml.
+
+
+

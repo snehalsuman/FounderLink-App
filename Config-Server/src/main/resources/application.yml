@@ -1,0 +1,39 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${CONFIG_SERVER_GIT_URI:https://github.com/snehalsuman/FounderLink}
+          default-label: ${CONFIG_SERVER_GIT_BRANCH:main}
+          search-paths: config
+          clone-on-start: true
+          username: ${CONFIG_SERVER_GIT_USERNAME:}
+          password: ${CONFIG_SERVER_GIT_PASSWORD:}
+
+---
+# ── Native profile — reads config files directly from local filesystem ──────
+# Use this for local development so you don't need to push changes to GitHub.
+# In IntelliJ: set SPRING_PROFILES_ACTIVE=native in the Config-Server run config.
+spring:
+  config:
+    activate:
+      on-profile: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: ${CONFIG_NATIVE_SEARCH_PATH:file:./config}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      show-details: always

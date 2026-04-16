@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+@layer base {
+  body {
+    @apply bg-[#f5f5f7] dark:bg-black text-[#1d1d1f] dark:text-[#f5f5f7];
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track  { background: transparent; }
+  ::-webkit-scrollbar-thumb  { background: #c7c7cc; border-radius: 10px; }
+  .dark ::-webkit-scrollbar-thumb { background: #48484a; }
+}
+
+/* ─── Component layer ─────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-accent hover:bg-accent-hover active:scale-[0.98]
+           text-white font-medium text-sm
+           py-2 px-5 rounded-xl
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed
+           shadow-[0_1px_3px_rgba(10,132,255,0.35)];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-[#f5f5f7] hover:bg-[#e8e8ed] active:scale-[0.98]
+           dark:bg-dark-700 dark:hover:bg-dark-600
+           text-[#1d1d1f] dark:text-[#e5e5ea]
+           font-medium text-sm
+           py-2 px-5 rounded-xl
+           border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]
+           transition-all duration-150;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2
+           bg-[#ff3b30] hover:bg-[#e0352b] active:scale-[0.98]
+           text-white font-medium text-sm
+           py-2 px-5 rounded-xl
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-success {
+    @apply inline-flex items-center justify-center gap-2
+           bg-[#34c759] hover:bg-[#2fb350] active:scale-[0.98]
+           text-white font-medium text-sm
+           py-2 px-5 rounded-xl
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  /* Input */
+  .input-field {
+    @apply w-full
+           bg-white dark:bg-dark-700
+           border border-[rgba(0,0,0,0.10)] dark:border-[rgba(255,255,255,0.08)]
+           rounded-xl px-4 py-2.5
+           text-sm text-[#1d1d1f] dark:text-[#f5f5f7]
+           placeholder-[#8e8e93] dark:placeholder-[#636366]
+           focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent/60
+           transition-all duration-150;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white dark:bg-dark-800
+           rounded-2xl
+           border border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)]
+           p-6
+           shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none;
+  }
+  .card-hover {
+    @apply bg-white dark:bg-dark-800
+           rounded-2xl
+           border border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)]
+           p-6
+           shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none
+           hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] dark:hover:bg-dark-700
+           hover:border-accent/30 dark:hover:border-accent/25
+           transition-all duration-200 cursor-pointer;
+  }
+  .stat-card {
+    @apply bg-white dark:bg-dark-800
+           rounded-2xl
+           border border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)]
+           p-5 flex flex-col gap-3
+           shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none;
+  }
+
+  /* Badges — softer, more refined */
+  .badge-green {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-[rgba(52,199,89,0.12)] text-[#248a3d] dark:text-[#30d158]
+           border border-[rgba(52,199,89,0.20)];
+  }
+  .badge-yellow {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-[rgba(255,159,10,0.12)] text-[#c25f00] dark:text-[#ffd60a]
+           border border-[rgba(255,159,10,0.20)];
+  }
+  .badge-red {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-[rgba(255,59,48,0.12)] text-[#c00] dark:text-[#ff453a]
+           border border-[rgba(255,59,48,0.20)];
+  }
+  .badge-blue {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-[rgba(10,132,255,0.10)] text-accent dark:text-accent-light
+           border border-[rgba(10,132,255,0.20)];
+  }
+  .badge-purple {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+           bg-[rgba(191,90,242,0.12)] text-[#9333ea] dark:text-[#bf5af2]
+           border border-[rgba(191,90,242,0.20)];
+  }
+
+  /* Sidebar navigation */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+           text-[#6e6e73] dark:text-[#8e8e93]
+           hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7]
+           hover:bg-[rgba(0,0,0,0.05)] dark:hover:bg-[rgba(255,255,255,0.05)]
+           transition-all duration-150;
+  }
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+           bg-[rgba(10,132,255,0.10)] dark:bg-[rgba(10,132,255,0.15)]
+           text-accent dark:text-accent-light
+           border border-[rgba(10,132,255,0.15)] dark:border-[rgba(10,132,255,0.20)];
+  }
+
+  /* Misc */
+  .divider {
+    @apply border-t border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.06)] my-4;
+  }
+  .glass {
+    @apply bg-white/70 dark:bg-dark-800/60
+           backdrop-blur-xl
+           border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)];
+  }
+}
+
+/* ─── Light-mode remaps for hardcoded dark- Tailwind classes ──────────────── */
+/* These selectors cover all page files without modifying each one.            */
+
+html:not(.dark) .bg-dark-900 { background-color: #f5f5f7 !important; }
+html:not(.dark) .bg-dark-800 { background-color: #ffffff !important; }
+html:not(.dark) .bg-dark-700 { background-color: #f5f5f7 !important; }
+html:not(.dark) .bg-dark-600 { background-color: #e8e8ed !important; }
+html:not(.dark) .bg-dark-500 { background-color: #f5f5f7 !important; }
+html:not(.dark) .bg-dark-400 { background-color: #e8e8ed !important; }
+
+html:not(.dark) .border-dark-500 { border-color: rgba(0,0,0,0.08) !important; }
+html:not(.dark) .border-dark-400 { border-color: rgba(0,0,0,0.12) !important; }
+html:not(.dark) .divide-dark-500 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(0,0,0,0.07) !important;
+}
+
+/* Text — map old dark-only values to Apple light-mode equivalents */
+html:not(.dark) .text-white       { color: #1d1d1f !important; }
+html:not(.dark) .text-gray-100    { color: #1d1d1f !important; }
+html:not(.dark) .text-gray-200    { color: #3a3a3c !important; }
+html:not(.dark) .text-gray-300    { color: #3a3a3c !important; }
+html:not(.dark) .text-gray-400    { color: #6e6e73 !important; }
+html:not(.dark) .text-gray-600    { color: #6e6e73 !important; }
+
+/* Status / accent — use Apple HIG colours on white */
+html:not(.dark) .text-accent-light { color: #0071e3 !important; }
+html:not(.dark) .text-green-400    { color: #248a3d !important; }
+html:not(.dark) .text-green-500    { color: #248a3d !important; }
+html:not(.dark) .text-red-400      { color: #c00 !important; }
+html:not(.dark) .text-red-500      { color: #c00 !important; }
+html:not(.dark) .text-yellow-400   { color: #c25f00 !important; }
+html:not(.dark) .text-blue-400     { color: #0071e3 !important; }
+html:not(.dark) .text-purple-400   { color: #9333ea !important; }
+
+/* Skeleton shimmer */
+html:not(.dark) .animate-pulse { background-color: #e8e8ed !important; }
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }

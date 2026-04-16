@@ -1,0 +1,36 @@
+# Maven build output
+**/target/
+**/*.class
+**/*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+**/.DS_Store
+.metadata/
+out/
+
+# Claude AI files
+.claude/
+
+# Old JS frontend - excluded, use founderlink-frontend-ts instead
+founderlink-frontend/
+
+# Interview prep - local only
+interview-prep/
+
+# Node modules and build artifacts for TS frontend
+founderlink-frontend-ts/node_modules/
+founderlink-frontend-ts/build/
+
+# Root .env has DB passwords - DO NOT commit
+.env
+
+# Logs
+*.log
+**/logs/
+
+# Misc
+*.resolved
+founderlink_documentation.md.resolved

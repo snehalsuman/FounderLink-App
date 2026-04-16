@@ -1,0 +1,18 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery-server
+  config:
+    import: optional:configserver:http://localhost:8888
+
+# Prevent Eureka server from registering with itself.
+# Also set in config/discovery-server.yml (served by Config-Server),
+# but these local defaults ensure correct behavior regardless of startup order.
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    enable-self-preservation: false
